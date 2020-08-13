@@ -1,23 +1,29 @@
-import React from 'react';
+import React, { useState, ReactText } from 'react';
 import logo from './logo.svg';
 import './App.css';
+import { Grid } from './Grid';
+
+const wordData = {
+  center: "O",
+  sides: ["P", "A", "E", "B", "T", "L"],
+  possibleWords: ["PLOT"]
+}
 
 function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
         <p>
-          Edit <code>src/App.tsx</code> and save to reload.
+          Like the NYTimes Spelling Bee.
         </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+        <div>
+          <div>Enter all words you can make using these letters.</div>
+          <div>Each word should include the letter in the yellow cell.</div>
+          <div>Words should be at least 4 letters long. </div>
+          <div>Repetitions are allowed.</div>
+        </div>
+        <Grid {...wordData}>
+        </Grid>
       </header>
     </div>
   );
