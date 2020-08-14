@@ -80,13 +80,18 @@ export const Grid = ({ center, sides, possibleWords }: GridProps) => {
         });
     }
 
-    const cellArray =
-        (<div style={{ display: "flex" }}>{sideLetters.map((letter: string, i: number) =>
-            <Cell key={i}
-                letter={letter}
-                isCenter={false}
-                handleClick={handleCellClick}></Cell>)}
-        </div>);
+    const cellArray = sideLetters.map((letter: string, i: number) =>
+        <Cell key={i}
+            letter={letter}
+            isCenter={false}
+            handleClick={handleCellClick}></Cell>);
+    const centerCell = <Cell key={7}
+        letter={center}
+        isCenter={true}
+        handleClick={handleCellClick}></Cell>;
+    const top = _.slice(cellArray, 0, 2);
+    const bottom = _.slice(cellArray, -2);
+    const middle = [cellArray[2], centerCell, cellArray[3]];
 
     return (
         <div>
@@ -97,15 +102,36 @@ export const Grid = ({ center, sides, possibleWords }: GridProps) => {
             >
                 {message.message}
             </div>
-            <div style={{
+            {/* <div style={{
                 display: "flex"
             }}>
                 <Cell letter={center}
                     isCenter={true}
                     handleClick={handleCellClick} />
                 {cellArray}
+            </div> */}
+            <div style={{
+                display: "flex",
+                flexDirection: "column"
+            }}>
+                <div style={{
+                    display: "flex",
+                    pointerEvents:"none"
+                    }}>{top}</div>
+                <div style={{
+                    display: "flex",
+                    position: "relative",
+                    bottom: 141,
+                    left: -55,
+                    pointerEvents:"none"
+                }}>{middle}</div>
+                <div style={{
+                    display: "flex",
+                    position: "relative",
+                    bottom: 279,
+                    pointerEvents:"none"
+                }}>{bottom}</div>
             </div>
-            {/* <Hex/> */}
             <UserControls handleSubmit={submit}
                 handleJuggle={juggle}
                 handleClear={clearCurrentWord}
