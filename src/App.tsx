@@ -22,8 +22,10 @@ function App() {
                     <div>Words should be at least 4 letters long. </div>
                     <div>Letter repetitions are allowed.</div>
                 </div>
-                <Grid {...wordData}>
-                </Grid>
+                <div style={{ display: "flex" }}>
+                    <div>                  <Grid {...wordData} />
+                    </div>
+                </div>
             </header>
         </div>
     );

@@ -1,0 +1,21 @@
+.wordlist {
+    margin-left: 30%;
+    margin-top: 10%;;
+}
+
+.wordlist-header {
+    font-size: xx-large;
+    color: black;
+}
+
+.wordlist-header-green {
+    background-color: green;
+}
+
+.wordlist-header-white {
+    background-color: white;
+}
+
+.wordsFoundList {
+    font-size: x-large;
+}

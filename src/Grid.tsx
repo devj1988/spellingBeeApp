@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { Cell } from "./Cell";
 import { UserControls } from "./UserControls";
 import * as _ from "lodash";
+import "./Grid.css";
 
 export interface GridProps {
     center: string;
@@ -92,55 +93,58 @@ export const Grid = ({ center, sides, possibleWords }: GridProps) => {
     const bottom = _.slice(cellArray, -4);
 
     return (
-        <div style={{
-            display: "flex",
-            flexDirection: "column"
-        }}>
-            <div hidden={message.hidden}
-                style={{
-                    backgroundColor: message.error ? "red" : "green"
-                }}
-            >
-                {message.message}
-            </div>
+        <div style={{ display: "flex", flexDirection: "row" }}>
             <div style={{
-                position: "relative",
-                left: -10,
-                top: 120
+                display: "flex",
+                flexDirection: "column"
             }}>
-                {top}
-                {centerCell}
-                {bottom}
-            </div>
-            <div style={{
-                position: "relative",
-                left: -9,
-                top: 328
-            }}>
-                <UserControls handleSubmit={submit}
-                    handleJuggle={juggle}
-                    handleClear={clearCurrentWord}
-                    currentWord={currentWord}
-                    handleReset={resetGame}
-                    isNewGame={!(wordsFound.length === possibleWords.length)}
-                ></UserControls>
+                <div hidden={message.hidden}
+                    style={{
+                        backgroundColor: message.error ? "red" : "green"
+                    }}
+                >
+                    {message.message}
+                </div>
+                <div style={{
+                    position: "relative",
+                    left: -10,
+                    top: 120
+                }}>
+                    {top}
+                    {centerCell}
+                    {bottom}
+                </div>
+                <div style={{
+                    position: "relative",
+                    left: -9,
+                    top: 328
+                }}>
+                    <UserControls handleSubmit={submit}
+                        handleJuggle={juggle}
+                        handleClear={clearCurrentWord}
+                        currentWord={currentWord}
+                        handleReset={resetGame}
+                        isNewGame={!(wordsFound.length === possibleWords.length)}
+                    ></UserControls>
+                </div>
+
             </div>
             <div>
-                <div style={{
-                    backgroundColor: wordsFound.length === possibleWords.length ?
-                        "green" : "white",
-                    color: "black"
-                }}>
-                    {wordsFound.length > 0 ?
-                        wordsFound.length === possibleWords.length ?
-                            "You found all words"! :
-                            `${wordsFound.length} word${
-                            wordsFound.length > 1 ? "s" : ""
-                            } found` : ""}
+                <div className="wordlist">
+                    <div className={wordsFound.length === possibleWords.length ? "wordlist-header wordlist-header-green" :
+                        "wordlist-header wordlist-header-white"
+                    }>
+                        {wordsFound.length > 0 ?
+                            wordsFound.length === possibleWords.length ?
+                                "You found all words"! :
+                                `${wordsFound.length} word${
+                                wordsFound.length > 1 ? "s" : ""
+                                } found` : ""}
+                    </div>
+                    <ol>
+                        {wordsFound.map(word => <li>{word}</li>)}
+                    </ol>
                 </div>
-                <ol>
-                    {wordsFound.map(word => <li>{word}</li>)}
-                </ol>
             </div>
         </div>);
 }
