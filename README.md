@@ -1,6 +1,6 @@
 [Demo](https://devj1988.github.io/spellingBeeApp/)
 
-This is a copy of the NYTimes Spelling Bee.
+This is my implementation of the NYTimes Spelling Bee puzzle.
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 To see it in action, in the project directory, run:
