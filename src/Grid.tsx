@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import { Cell } from "./Cell";
 import { UserControls } from "./UserControls";
-import { Hex } from "./Hex";
 import * as _ from "lodash";
 
 export interface GridProps {
@@ -90,7 +89,7 @@ export const Grid = ({ center, sides, possibleWords }: GridProps) => {
         isCenter={true}
         handleClick={handleCellClick}></Cell>;
     const top = _.slice(cellArray, 0, 2);
-    const bottom = _.slice(cellArray, -2);
+    const bottom = _.slice(cellArray, -4);
     const middle = [cellArray[2], centerCell, cellArray[3]];
 
     return (
@@ -110,35 +109,20 @@ export const Grid = ({ center, sides, possibleWords }: GridProps) => {
                     handleClick={handleCellClick} />
                 {cellArray}
             </div> */}
-            <div style={{
-                display: "flex",
-                flexDirection: "column"
-            }}>
-                <div style={{
-                    display: "flex",
-                    pointerEvents:"none"
-                    }}>{top}</div>
-                <div style={{
-                    display: "flex",
-                    position: "relative",
-                    bottom: 141,
-                    left: -55,
-                    pointerEvents:"none"
-                }}>{middle}</div>
-                <div style={{
-                    display: "flex",
-                    position: "relative",
-                    bottom: 279,
-                    pointerEvents:"none"
-                }}>{bottom}</div>
+            <div>
+                {top}
+                {centerCell}
+                {bottom}
             </div>
-            <UserControls handleSubmit={submit}
-                handleJuggle={juggle}
-                handleClear={clearCurrentWord}
-                currentWord={currentWord}
-                handleReset={resetGame}
-                isNewGame={!(wordsFound.length === possibleWords.length)}
-            ></UserControls>
+            <div>
+                <UserControls handleSubmit={submit}
+                    handleJuggle={juggle}
+                    handleClear={clearCurrentWord}
+                    currentWord={currentWord}
+                    handleReset={resetGame}
+                    isNewGame={!(wordsFound.length === possibleWords.length)}
+                ></UserControls>
+            </div>
             <div>
                 <div style={{
                     backgroundColor: wordsFound.length === possibleWords.length ?
