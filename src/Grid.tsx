@@ -90,10 +90,12 @@ export const Grid = ({ center, sides, possibleWords }: GridProps) => {
         handleClick={handleCellClick}></Cell>;
     const top = _.slice(cellArray, 0, 2);
     const bottom = _.slice(cellArray, -4);
-    const middle = [cellArray[2], centerCell, cellArray[3]];
 
     return (
-        <div>
+        <div style={{
+            display: "flex",
+            flexDirection: "column"
+        }}>
             <div hidden={message.hidden}
                 style={{
                     backgroundColor: message.error ? "red" : "green"
@@ -101,20 +103,20 @@ export const Grid = ({ center, sides, possibleWords }: GridProps) => {
             >
                 {message.message}
             </div>
-            {/* <div style={{
-                display: "flex"
+            <div style={{
+                position: "relative",
+                left: -10,
+                top: 120
             }}>
-                <Cell letter={center}
-                    isCenter={true}
-                    handleClick={handleCellClick} />
-                {cellArray}
-            </div> */}
-            <div>
                 {top}
                 {centerCell}
                 {bottom}
             </div>
-            <div>
+            <div style={{
+                position: "relative",
+                left: -9,
+                top: 328
+            }}>
                 <UserControls handleSubmit={submit}
                     handleJuggle={juggle}
                     handleClear={clearCurrentWord}
