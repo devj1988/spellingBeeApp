@@ -1,0 +1,23 @@
+{
+  "files": {
+    "main.css": "/spellingBeeApp/static/css/main.ed27be23.chunk.css",
+    "main.js": "/spellingBeeApp/static/js/main.1189c04c.chunk.js",
+    "main.js.map": "/spellingBeeApp/static/js/main.1189c04c.chunk.js.map",
+    "runtime-main.js": "/spellingBeeApp/static/js/runtime-main.136e0d51.js",
+    "runtime-main.js.map": "/spellingBeeApp/static/js/runtime-main.136e0d51.js.map",
+    "static/js/2.aa83ad28.chunk.js": "/spellingBeeApp/static/js/2.aa83ad28.chunk.js",
+    "static/js/2.aa83ad28.chunk.js.map": "/spellingBeeApp/static/js/2.aa83ad28.chunk.js.map",
+    "index.html": "/spellingBeeApp/index.html",
+    "precache-manifest.8985b3bd05787901dbf8fbfecc47e238.js": "/spellingBeeApp/precache-manifest.8985b3bd05787901dbf8fbfecc47e238.js",
+    "service-worker.js": "/spellingBeeApp/service-worker.js",
+    "static/css/main.ed27be23.chunk.css.map": "/spellingBeeApp/static/css/main.ed27be23.chunk.css.map",
+    "static/js/2.aa83ad28.chunk.js.LICENSE.txt": "/spellingBeeApp/static/js/2.aa83ad28.chunk.js.LICENSE.txt",
+    "static/media/refresh-svgrepo-com.a4d29865.svg": "/spellingBeeApp/static/media/refresh-svgrepo-com.a4d29865.svg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.136e0d51.js",
+    "static/js/2.aa83ad28.chunk.js",
+    "static/css/main.ed27be23.chunk.css",
+    "static/js/main.1189c04c.chunk.js"
+  ]
+}
