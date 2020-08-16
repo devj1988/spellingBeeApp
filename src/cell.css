@@ -6,37 +6,43 @@
     fill: #e6e6e6;
 }
 
+.cell-text {
+    color: black;
+    font-size: x-large;
+    font-weight: 500;
+}
+
 .cell:nth-child(1) {
     position: absolute;
-    transform: translate(62%, -101%);
+    transform: translate(166%, 0%);
 }
 
 .cell:nth-child(2) {
     position: absolute;
-    transform: translate(-25%, -51%);
+    transform: translate(85%, 47%)
 }
 
 .cell:nth-child(3) {
     position: absolute;
-    transform: translate(66%, -8%);
+    transform: translate(166%, 92%);
 }
 
 .cell:nth-child(4) {
     position: absolute;
-    transform: translate(153%, -51%);
+    transform: translate(247%, 47%);
 }
 
 .cell:nth-child(5) {
     position: absolute;
-    transform: translate(-25%, 38%);
+    transform: translate(85%, 138%);
 }
 
 .cell:nth-child(6) {
     position: absolute;
-    transform: translate(153%, 38%);
+    transform: translate(247%, 138%);
 }
 
 .cell:nth-child(7) {
     position: absolute;
-    transform: translate(69%, 86%);
+    transform: translate(166%, 183%);
 }

@@ -12,6 +12,8 @@ export interface GridProps {
 
 export const Grid = ({ center, sides, possibleWords }: GridProps) => {
 
+    console.log({ center, sides, possibleWords });
+
     const [currentWord, setCurrentWord] = useState("");
     const [wordsFound, setWordsFound] = useState<Array<string>>([]);
     const [message, setMessage] = useState({
@@ -93,32 +95,18 @@ export const Grid = ({ center, sides, possibleWords }: GridProps) => {
     const bottom = _.slice(cellArray, -4);
 
     return (
-        <div style={{ display: "flex", flexDirection: "row" }}>
-            <div style={{
-                display: "flex",
-                flexDirection: "column"
-            }}>
-                <div hidden={message.hidden}
-                    style={{
-                        backgroundColor: message.error ? "red" : "green"
-                    }}
-                >
-                    {message.message}
-                </div>
-                <div style={{
-                    position: "relative",
-                    left: -10,
-                    top: 120
-                }}>
-                    {top}
-                    {centerCell}
-                    {bottom}
-                </div>
-                <div style={{
-                    position: "relative",
-                    left: -9,
-                    top: 328
-                }}>
+        <div className="grid">
+            <div hidden={message.hidden} className={message.error ? "message-error" : "message"}>
+                {message.message}
+            </div>
+
+            <div className="grid-body">
+                <div className="grid-left">
+                    <div className="hive">
+                        {top}
+                        {centerCell}
+                        {bottom}
+                    </div>
                     <UserControls handleSubmit={submit}
                         handleJuggle={juggle}
                         handleClear={clearCurrentWord}
@@ -127,24 +115,22 @@ export const Grid = ({ center, sides, possibleWords }: GridProps) => {
                         isNewGame={!(wordsFound.length === possibleWords.length)}
                     ></UserControls>
                 </div>
-
-            </div>
-            <div>
-                <div className="wordlist">
-                    <div className={wordsFound.length === possibleWords.length ? "wordlist-header wordlist-header-green" :
-                        "wordlist-header wordlist-header-white"
-                    }>
-                        {wordsFound.length > 0 ?
-                            wordsFound.length === possibleWords.length ?
-                                "You found all words"! :
-                                `${wordsFound.length} word${
-                                wordsFound.length > 1 ? "s" : ""
-                                } found` : ""}
-                    </div>
-                    <ol>
-                        {wordsFound.map(word => <li>{word}</li>)}
-                    </ol>
-                </div>
+                <div className="grid-right">
+                    <div className="wordlist">
+                        <div className={wordsFound.length === possibleWords.length ? "wordlist-header wordlist-header-green" :
+                            "wordlist-header wordlist-header-white"
+                        }>
+                            {wordsFound.length > 0 ?
+                                wordsFound.length === possibleWords.length ?
+                                    "You found all words"! :
+                                    `${wordsFound.length} word${
+                                    wordsFound.length > 1 ? "s" : ""
+                                    } found` : ""}
+                        </div>
+                        <ol className="wordsFoundList">
+                            {wordsFound.map(word => <li>{word}</li>)}
+                        </ol>
+                    </div></div>
             </div>
         </div>);
 }
